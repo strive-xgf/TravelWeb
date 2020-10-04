@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+
+    <!--1. 引入jdbc的属性文件，在配置中通过占位使用 -->
+    <context:property-placeholder location="classpath*:db.properties" />
+
+    <!--2. <context:component-scan>扫描包中注解所标注的类(@Component、@Service、@Controller、@Repository) -->
+    <context:component-scan base-package="com.xgf"/>
+
+    <!--3. 由spring管理    配置数据源数据库连接(从jdbc属性文件中读取参数) -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+    </bean>
+
+    <!--  通过spring来管理Mybatis的sqlSessionFactory对象创建，将MyBatis的二级缓存配置configLocation粘入  -->
+    <!--4. 通过完全限定名匹配查找  创建SqlSessionFactoryBean  -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- 5. mybatis提供的一个注解扫描标签（搜索映射器 Mapper 接口），通过自动扫描注解的机制，创建每个dao接口定义的bean  -->
+    <mybatis:scan base-package="com.xgf.dao"/>
+
+</beans>

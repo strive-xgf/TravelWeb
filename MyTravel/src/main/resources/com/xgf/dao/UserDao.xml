@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    oid pid是查询select语句起的别名
+-->
+<mapper namespace="com.xgf.dao.UserDao">
+
+    <!--<resultMap id="orderMap" type="com.xgf.correlation.many_to_many.bean.Order">
+        <id column="oid" property="id"/>
+        <result property="description" column="description"/>
+        <collection property="productList" ofType="com.xgf.correlation.many_to_many.bean.Product">
+            <id column="pid" property="id"/>
+            <result property="name" column="name"/>
+        </collection>
+    </resultMap>-->
+
+    <select id="getUserByUsernamePassword" parameterType="com.xgf.bean.User" resultType="com.xgf.bean.User">
+           select uid,username,password,name,birthday,sex,telephone,email,status,code
+            from tab_user
+            where username = #{username} and password = #{password}
+
+    </select>
+
+</mapper>
