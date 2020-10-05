@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 解决全站乱码问题，处理所有的请求
+ * 解决全站乱码问题，处理所有的请求，拦截所有设置编码
  */
 @WebFilter("/*")
 public class CharchaterFilter implements Filter {

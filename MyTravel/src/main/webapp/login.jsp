@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -70,7 +70,7 @@
                     var username = $("#username").val()
                     var password = $("#password").val()
                     var inputCheckCode = $("#inputCheckCode").val()
-                    alert(username+password+inputCheckCode)
+                    //alert(username+password+inputCheckCode)
                     //写提交
                     $.ajax({
                         url:"LoginServlet",
@@ -97,13 +97,7 @@
                     $("#errorMsg").html("用户名或密码输入不规范，用户名密码错误");
                 }
             })
-
-
         })
-
-
-
-
 
     </script>
 
@@ -146,12 +140,13 @@
                 <div class="submit_btn" >
                     <button id="btn_login" type="button">登录</button>
                     <div class="auto_login">
-                        <input type="checkbox" name="" class="checkbox">
-                        <span>自动登录</span>
+                        <%-- ssh : 免密码登录 --%>
+                        <input type="checkbox" name="ssh" value="ssh" class="checkbox" style="margin-left: 10px">
+                        <span >十天免登陆</span>
                     </div>
                 </div>
             </form>
-            <div class="reg">没有账户？<a href="javascript:;">立即注册</a></div>
+            <div class="reg" >没有账户？<a href="javascript:;">立即注册</a></div>
         </div>
     </div>
 </section>

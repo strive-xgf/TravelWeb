@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /*
-* 生成验证码 并将验证码转化为图片的业务
+* 生成验证码，并将验证码转化为图片的业务层
 * */
 public class VerificationCodeService {
 

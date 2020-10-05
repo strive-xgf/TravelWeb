@@ -3,7 +3,7 @@ package com.xgf.util;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-//获取bean工具类
+// 获取bean工具类
 public class GetDaoUtils {
 
     private static ApplicationContext applicationContext = null;

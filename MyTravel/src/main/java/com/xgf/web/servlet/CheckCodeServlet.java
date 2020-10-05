@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-// 生成验证码显示成图片的servlet
+//  验证码-生成验证码显示成图片的servlet
 @WebServlet("/checkCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

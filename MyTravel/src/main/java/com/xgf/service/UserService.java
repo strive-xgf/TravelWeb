@@ -5,6 +5,7 @@ import com.xgf.bean.User;
 import com.xgf.dao.UserDao;
 import com.xgf.util.GetDaoUtils;
 
+//user业务层
 public class UserService {
 
     private static UserDao userDao = null;
